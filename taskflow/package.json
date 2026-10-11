@@ -1,0 +1,15 @@
+
+{
+  "name": "taskflow-devops",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A task manager for learning DevOps",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --check src/tasks.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

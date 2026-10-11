@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f4f1">
+  <meta name="description" content="TaskFlow — your calm, focused task manager.">
+  <title>TaskFlow — Make space for what matters</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/">
+        <span class="brand-mark">t.</span>
+        <span>taskflow<span class="brand-dot">.</span></span>
+      </a>
+
+      <p class="nav-heading">WORKSPACE</p>
+      <nav class="navigation">
+        <button class="nav-item active" data-filter="all">
+          <span>◫</span> All tasks <span class="nav-count" id="all-count">0</span>
+        </button>
+        <button class="nav-item" data-filter="todo">
+          <span>○</span> To do <span class="nav-count" id="todo-count">0</span>
+        </button>
+        <button class="nav-item" data-filter="in-progress">
+          <span>◷</span> In progress <span class="nav-count" id="progress-count">0</span>
+        </button>
+        <button class="nav-item" data-filter="done">
+          <span>✓</span> Completed <span class="nav-count" id="done-count">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-note">
+        <span class="note-icon">✦</span>
+        <p>Small steps, every day.</p>
+        <span>Progress over perfection.</span>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span> TaskFlow is ready
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <span class="eyebrow">YOUR PERSONAL WORKSPACE</span>
+        <span class="today" id="today"></span>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <p class="eyebrow">A LITTLE PROGRESS GOES A LONG WAY</p>
+          <h1>Make space for<br>what <span>matters.</span></h1>
+          <p class="welcome-copy">Your plans, your pace. Let's make today count.</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <span class="art-sun"></span>
+          <span class="art-leaf leaf-one"></span>
+          <span class="art-leaf leaf-two"></span>
+          <span class="art-pot"></span>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Task summary">
+        <article class="stat-card">
+          <span class="stat-label">TOTAL TASKS</span>
+          <strong id="total-stat">0</strong>
+          <span class="stat-caption">Things on your mind</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">IN PROGRESS</span>
+          <strong id="active-stat">0</strong>
+          <span class="stat-caption">One step at a time</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">COMPLETED</span>
+          <strong id="completed-stat">0</strong>
+          <span class="stat-caption">Look how far you've come</span>
+        </article>
+      </section>
+
+      <section class="tasks-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR DAY, YOUR WAY</p>
+            <h2>My tasks <span id="visible-count">0</span></h2>
+          </div>
+          <button class="primary-button" id="show-form">+ New task</button>
+        </div>
+
+        <form id="task-form" class="task-form" hidden>
+          <h3>Add something to your list</h3>
+          <label for="task-title">Task title</label>
+          <input id="task-title" name="title" maxlength="120"
+                 placeholder="e.g. Finish my project" required>
+          <label for="task-description">Description <span>(optional)</span></label>
+          <textarea id="task-description" name="description" rows="2"
+                    placeholder="Add a little detail..."></textarea>
+          <label for="task-priority">Priority</label>
+          <select id="task-priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+          <div class="form-actions">
+            <button type="button" class="secondary-button" id="cancel-form">Cancel</button>
+            <button type="submit" class="primary-button">Create task</button>
+          </div>
+        </form>
+
+        <div id="message" class="message" role="status" hidden></div>
+        <div id="task-list" class="task-list"></div>
+      </section>
+
+      <footer class="page-footer">
+        Made with care <span>♥</span> and a little bit of focus.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
